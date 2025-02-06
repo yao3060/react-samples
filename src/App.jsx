@@ -4,6 +4,7 @@ import Tab from "./components/Tab";
 import Toggle from "./components/Toggle";
 import NumberFlowActivity from "./components/NumberFlow/NumberFlowActivity";
 import NumberFlowCountdown from "./components/NumberFlow/NumberFlowCountdown";
+import MotionExample from "./components/NumberFlow/MotionExample";
 import { useEffect, useState } from "react"
 
 function Countdown() {
@@ -15,6 +16,14 @@ function Countdown() {
   }, []);
 
   return <NumberFlowCountdown seconds={seconds} />
+}
+
+function MotionExampleContainer() {
+  const [value, setValue] = useState(543);
+
+  return  <div onClick={() => setValue(Math.floor(Math.random() * (1000 - -100 + 1)) + -100)}>
+    <MotionExample  value={value} />
+  </div>
 }
 
 function App() {
@@ -32,6 +41,8 @@ function App() {
       <Toggle />
       <NumberFlowActivity />
       <Countdown />
+
+      <MotionExampleContainer />
 
 
     </div>
